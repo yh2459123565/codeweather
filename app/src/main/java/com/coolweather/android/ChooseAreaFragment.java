@@ -1,6 +1,5 @@
 package com.coolweather.android;
 
-import android.annotation.TargetApi;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.os.Build;
@@ -62,7 +61,7 @@ public class ChooseAreaFragment extends Fragment {
 
     private int currentLevel;
 
-    @TargetApi(Build.VERSION_CODES.M)
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle
             savedInstanceState) {
@@ -72,6 +71,7 @@ public class ChooseAreaFragment extends Fragment {
         listView = (ListView) view.findViewById(R.id.list_view);
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, dataList);
         /*初始化ArrayAdapter，并将它设置为ListView*/
+        listView.setAdapter(adapter);
         return view;
     }
 
